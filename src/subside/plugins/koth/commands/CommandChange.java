@@ -8,8 +8,6 @@ import org.bukkit.command.CommandSender;
 
 import subside.plugins.koth.commands.CommandHandler.CommandCategory;
 import subside.plugins.koth.exceptions.CommandMessageException;
-import subside.plugins.koth.gamemodes.KothConquest;
-import subside.plugins.koth.gamemodes.KothConquest.FactionScore;
 import subside.plugins.koth.modules.Lang;
 import subside.plugins.koth.gamemodes.RunningKoth;
 import subside.plugins.koth.utils.IPerm;
@@ -80,86 +78,23 @@ public class CommandChange extends AbstractCommand {
             if (args.length < 3) {
                 throw new CommandMessageException(Lang.COMMAND_GLOBAL_USAGE[0] + "/koth change points set <faction> <points>");
             }
-            if (rKoth instanceof KothConquest) {
-                KothConquest kothCQ = (KothConquest) rKoth;
-                for (FactionScore fScore : kothCQ.getFScores()) {
-                    if (fScore.getFaction().getName().equalsIgnoreCase(args[1])) {
-                        try {
-                            fScore.setPoints(Integer.parseInt(args[2]));
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_SET).entry(fScore.getFaction().getName()));
-                        } catch(Exception e){
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_NOTANUMBER));
-                        }
-                    }
-                }
-
-                throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_FACTION_NOT_FOUND));
-            } else {
-                throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
-            }
+            throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
         } else if(args[0].equalsIgnoreCase("add")){
             if (args.length < 3) {
                 throw new CommandMessageException(Lang.COMMAND_GLOBAL_USAGE[0] + "/koth change points add <faction> <points>");
             }
-            if (rKoth instanceof KothConquest) {
-                KothConquest kothCQ = (KothConquest) rKoth;
-                for (FactionScore fScore : kothCQ.getFScores()) {
-                    if (fScore.getFaction().getName().equalsIgnoreCase(args[1])) {
-                        try {
-                            fScore.setPoints(fScore.getPoints()+Integer.parseInt(args[2]));
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_SET).entry(fScore.getFaction().getName()));
-                        } catch(Exception e){
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_NOTANUMBER));
-                        }
-                    }
-                }
-
-                throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_FACTION_NOT_FOUND));
-            } else {
-                throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
-            }
+            throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
         } else if(args[0].equalsIgnoreCase("del")){
             if (args.length < 3) {
                 throw new CommandMessageException(Lang.COMMAND_GLOBAL_USAGE[0] + "/koth change points set <faction> <points>");
             }
-            if (rKoth instanceof KothConquest) {
-                KothConquest kothCQ = (KothConquest) rKoth;
-                for (FactionScore fScore : kothCQ.getFScores()) {
-                    if (fScore.getFaction().getName().equalsIgnoreCase(args[1])) {
-                        try {
-                            fScore.setPoints(fScore.getPoints()-Integer.parseInt(args[2]));
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_SET).entry(fScore.getFaction().getName()));
-                        } catch(Exception e){
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_NOTANUMBER));
-                        }
-                    }
-                }
 
-                throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_FACTION_NOT_FOUND));
-            } else {
-                throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
-            }
+            throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
         } else if(args[0].equalsIgnoreCase("reset")){
             if (args.length < 3) {
                 throw new CommandMessageException(Lang.COMMAND_GLOBAL_USAGE[0] + "/koth change points set <faction> <points>");
             }
-            if (rKoth instanceof KothConquest) {
-                KothConquest kothCQ = (KothConquest) rKoth;
-                for (FactionScore fScore : kothCQ.getFScores()) {
-                    if (fScore.getFaction().getName().equalsIgnoreCase(args[1])) {
-                        try {
-                            fScore.setPoints(0);
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_SET).entry(fScore.getFaction().getName()));
-                        } catch(Exception e){
-                            throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_NOTANUMBER));
-                        }
-                    }
-                }
-
-                throw new CommandMessageException(new MessageBuilder(Lang.COMMAND_CHANGE_POINTS_FACTION_NOT_FOUND));
-            } else {
-                throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
-            }
+            throw new CommandMessageException(Lang.KOTH_ERROR_NOT_COMPATIBLE);
         }
     }
 

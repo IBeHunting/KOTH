@@ -48,6 +48,7 @@ public class KothPlugin extends JavaPlugin {
 	}
 	
 	public void setupModules(){
+
 	    // Clear the module list
 	    activeModules = new ArrayList<>();
 	    

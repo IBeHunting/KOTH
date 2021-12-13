@@ -67,7 +67,7 @@ public class VersionChecker extends AbstractModule implements Listener {
         if(newVersion != null && Perm.Admin.ADMIN.has(event.getPlayer())){
             String[] msgs = {
                     ChatColor.translateAlternateColorCodes('&', "&aAn update for &2KoTH (KoTH "+newVersion+") &ais available at:"),
-                    ChatColor.translateAlternateColorCodes('&', "&ahttps://www.spigotmc.org/resources/KoTH.7689/")
+                    ChatColor.translateAlternateColorCodes('&', "&ahttps://www.spigotmc.org/java.resources/KoTH.7689/")
             };
             event.getPlayer().sendMessage(msgs);
         }
