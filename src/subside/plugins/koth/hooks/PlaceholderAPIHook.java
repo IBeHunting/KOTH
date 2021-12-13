@@ -1,8 +1,8 @@
 package subside.plugins.koth.hooks;
 
+import me.clip.placeholderapi.PlaceholderHook;
 import org.bukkit.entity.Player;
 
-import me.clip.placeholderapi.external.EZPlaceholderHook;
 import subside.plugins.koth.KothPlugin;
 import subside.plugins.koth.areas.Koth;
 import subside.plugins.koth.gamemodes.RunningKoth;
@@ -13,12 +13,12 @@ import subside.plugins.koth.scheduler.Schedule;
 /**
 * Made in collaboration with F64_Rx <3
 */
-public class PlaceholderAPIHook extends EZPlaceholderHook {
+public class PlaceholderAPIHook extends PlaceholderHook {
     KothPlugin plugin;
     
     public PlaceholderAPIHook(KothPlugin plugin) {
-        super(plugin, "koth");
-        
+        //super(plugin, "koth");
+
         this.plugin = plugin;
     }
 
