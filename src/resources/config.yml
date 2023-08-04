@@ -1,0 +1,110 @@
+# Find all the information you need at http://dev.thomasvdbulk.nl/KoTH/
+
+# To grab your own timezone go to: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+global:
+  use-cache: false
+  debug: false
+  multiplekothsatonce: true
+  schedule-show-current-day-only: false
+  schedule-timezone: "Europe/Amsterdam"
+  date-format: "dd/MM/yyyy HH:mm:ss"
+  world-filter: false
+  minuteoffset: 0
+  startweekminuteoffset: 0
+  scheduleminuteoffset: 0
+  pre-broadcast: false
+  pre-broadcast-messages:
+    - "600:&aThe koth %koth% will start in 10 minutes!"
+    - "120:&aThe koth %koth% will start in 2 minutes!"
+    - "60:&aThe koth %koth% will start in 1 minute!"
+    - "30:&aThe koth %koth% will start in 30 seconds!"
+    - "15:&aThe koth %koth% will start in 15 seconds!"
+
+  nocap-broadcast-interval: 30
+  helpcommand:
+    - "&8========> &2Koth &8<========"
+    - "&a/koth list &7Shows all available koths"
+    - "&a/koth loot &7Shows the loot for the upcoming koth"
+    - "&a/koth schedule &7Shows the schedule for koths"
+    - "&a/koth ignore &7Toggles the KoTH messages"
+
+loot:
+  default: ""
+  randomize: true
+  default-amount: 5
+  randomize-stacksize: false
+  can-use-same-items: true
+  remove-after: 0
+  drop-on-removal: false
+  give-instantly: false
+  reward-everyone: false
+  commands:
+    enabled: false
+    changeingame: false
+    needop: true
+
+hooks:
+  essentialsvanish: true
+  vanishnopacket: true
+  factions: true
+  kingdoms: true
+  feudalkingdoms: true
+  gangs: true
+  mcmmo: true
+  pvpmanager: true
+  bossbar: 
+    enabled: false
+    range: 100
+    rangemargin: 5
+    text: "&a%koth% currently captured by: %capper%"
+    barsegments: 10 # ONLY 1, 6, 10, 12 and 20 are supported by Minecraft
+    barcolor: "BLUE" # Can ONLY be: BLUE, GREEN, PURPLE, PINK, WHITE, RED, YELLOW
+    countingDown: false # Put this to true if you want the bar to drain instead of filling
+    flags: # Those are some random flags I was able to toggle. Some don't seem to be working though. :(
+      createfog: false
+      darkensky: false
+      playmusic: false
+  featherboard:
+    enabled: false
+    board: "koth"
+    range: 100 # -1 to disable it
+    rangemargin: 5
+
+koth:
+  remove-chest-at-start: true
+  ffa-on-time-limit: false # This will on time limit create a FreeForAll chest
+  default-capturetype: "" # set this to your desired capture type
+  contest-freeze: false
+  capture-cooldown: 0
+  channel-time: 0
+  knock-time: 0
+  minimum-players: 0
+  broadcast-interval: 30
+  captime-decrementation: # This is to decrease the captime as time passes
+    enabled: false
+    every-x-seconds: 600
+    decrease-by: 60
+    minimum: 300
+  start-new-on-end: false # This is using the map-rotation!
+  map-rotation:
+    - "map1"
+    - "map2"
+    - "map3"
+    - "map2"
+    - "etc"
+
+
+# If you use SQLite only database will be used, as name for the file to create
+# change storagetype to mysql if you want to use MySQL instead.
+database:
+  enabled: false
+  storagetype: "sqlite"
+  database: "KoTH"
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: ""
+  modules:
+    saveKothWins: true
+    savePlayerIgnores: true
